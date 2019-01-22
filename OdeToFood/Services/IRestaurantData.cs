@@ -6,12 +6,39 @@ using System.Threading.Tasks;
 
 namespace OdeToFood.Services
 {
+
     public interface IRestaurantData
     {
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
 
         void Add(Restaurant restaurant);
+    }
+
+    public class SQLRestaurantData : IRestaurantData
+    {
+        private readonly OdeToFoodDBContext _context;
+
+        public SQLRestaurantData(OdeToFoodDBContext context)
+        {
+            _context = context;
+        }
+
+        public IEnumerable<Restaurant> GetAll()
+        {
+            return _context.Restaurants;
+        }
+
+        public Restaurant Get(int id)
+        {
+            return _context.Restaurants?.FirstOrDefault(r => r.Id == id);
+        }
+
+        public void Add(Restaurant restaurant)
+        {
+            _context.Add(restaurant);
+            _context.SaveChanges();
+        }
     }
 
     public class InMemoryRestaurantData : IRestaurantData

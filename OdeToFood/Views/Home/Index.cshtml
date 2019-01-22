@@ -2,12 +2,15 @@
 
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>@Model.CurrentMessage</h1>
+@{
+  ViewBag.Title = "Home";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h1>@Model.CurrentMessage</h1>
     <table>
         @foreach (var restaurant in Model.Restaurants)
         {
@@ -17,5 +20,4 @@
         </tr>
         }
     </table>
-</body>
-</html>
+
