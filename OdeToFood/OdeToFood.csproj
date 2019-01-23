@@ -9,6 +9,7 @@
     <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="EntityFramework.Commands" Version="7.0.0-rc1-final" />
     <PackageReference Include="EntityFramework.MicrosoftSqlServer.Design" Version="7.0.0-rc1-final" />
+    <PackageReference Include="Microsoft.AspNet.Mvc.TagHelpers" Version="6.0.0-rc1-final" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.1" />
   </ItemGroup>
 

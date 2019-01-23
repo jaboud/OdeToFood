@@ -13,6 +13,8 @@ namespace OdeToFood.Services
         Restaurant Get(int id);
 
         void Add(Restaurant restaurant);
+
+        int Commit();
     }
 
     public class SQLRestaurantData : IRestaurantData
@@ -22,6 +24,11 @@ namespace OdeToFood.Services
         public SQLRestaurantData(OdeToFoodDBContext context)
         {
             _context = context;
+        }
+
+        public int Commit()
+        {
+            return _context.SaveChanges();
         }
 
         public IEnumerable<Restaurant> GetAll()
@@ -52,6 +59,12 @@ namespace OdeToFood.Services
                new Restaurant {Id = 3, Name = "Dominos"}
             };
         }
+
+        public int Commit()
+        {
+            return 0;
+        }
+
 
         public void Add(Restaurant newRestaurant)
         {
