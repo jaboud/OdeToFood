@@ -11,11 +11,13 @@ namespace OdeToFood.Controllers
 {
     public class HomeController : Controller
     {
+        //Declaration of private instances.
+
         private IRestaurantData _restaurantData;
         private IGreeter _greeter;
 
-        public HomeController(IRestaurantData restaurantData,  
-                              IGreeter greeter)
+        //Services are injected into the constructor through dependency injection.
+        public HomeController(IRestaurantData restaurantData, IGreeter greeter)
         {
             _restaurantData = restaurantData;
             _greeter = greeter;

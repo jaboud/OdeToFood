@@ -1,12 +1,16 @@
 ﻿@model Restaurant
 
 <section>
-    <h3>@Model.Name</h3>
-    <div>
-        @Model.Cuisine
-    </div>
-    <div>
-        <a asp-action="Details" asp-route-id="@Model.Id">Details</a>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-    </div>
+  <h3>@Model.Name</h3>
+  <div>
+    @Model.Cuisine
+  </div>
+  <div>
+    @* Uses tag helpers to build up a url which points to home controller, the details view within it and then passes in an ID from model. *@
+    <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">Details</a>
+
+    @*Using Action Link:
+      @Html.ActionLink("Details", "Details", "Home", new { @id = @restaurant.Id })*@
+    <a asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+  </div>
 </section>
