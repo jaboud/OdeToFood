@@ -1,25 +1,28 @@
 ﻿@model OdeToFood.ViewModels.HomeIndexViewModel
 @{
-    ViewBag.Title = "Home";
+  ViewBag.Title = "Home";
 }
 
 <h1>Welcome!</h1>
 
 @foreach (var restaurant in Model.Restaurants)
 {
-    <h3>@restaurant.Name</h3>
-    <div>
-        @restaurant.Cuisine
-    </div>
-    <div>
-        <a asp-action="Details" asp-route-id="@restaurant.Id">Details</a>
-        <a asp-action="Edit" asp-route-id="@restaurant.Id">Edit</a>
-    </div>
-    @*@Html.Partial("_Summary", restaurant)*@
+  <h3>@restaurant.Name</h3>
+  <div>
+    @restaurant.Cuisine
+  </div>
+  <div>
+    <a asp-controller="Home" asp-action="Details" asp-route-id="@restaurant.Id">Details</a>
+    
+    @*Using Action Link:
+    @Html.ActionLink("Details", "Details", "Home", new { @id = @restaurant.Id })*@
+    <a asp-controller="Home" asp-action="Edit" asp-route-id="@restaurant.Id">Edit</a>
+  </div>
+  @*@Html.Partial("_Summary", restaurant)*@
 }
 
 <div>
-    <a asp-action="Create">Create</a>
+  <a asp-action="Create">Create</a>
 </div>
 
 
